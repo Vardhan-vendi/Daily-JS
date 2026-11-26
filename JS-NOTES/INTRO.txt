@@ -1,177 +1,1170 @@
-what is JS ?
-- high level, dynamically typed programming language
-- used to creating dynamic and interactive web pages.
-- It is executed in browser like google , chrome , bing, edge, brave , by using V8 engine .
-- To run the js out side the browser, we install NODE , which is built on top of V8 engine + event API's. 
-  
+JAVASCRIPT FUNDAMENTALS – REVISION NOTES
+========================================
 
-- where it is used ?
-    BROWSER SIDE    - DOM manipulations 
-                    - Upadte UI
-                    - Request API's
-                    - Handle form validates
-                    - Handle User Interactions
+1. WHAT IS JAVASCRIPT?
+----------------------
 
-    SERVER SIDE     - create building backend servers
-                    - Building REST API's
-                    - Authentication
-                    - file handling 
-                    - Database operators
+- JavaScript (JS) is a high-level, dynamically typed, multi-paradigm programming language.
+- It is primarily used to create dynamic and interactive web applications.
+- JavaScript is executed by JavaScript engines.
+- Modern browsers contain JavaScript engines to execute JavaScript code.
 
-ECMASCRIPT vs JAVASCRIPT:---
+EXAMPLES OF JAVASCRIPT ENGINES:
+
+1. V8       - Chrome, Edge, Brave, Node.js.
+2. SpiderMonkey - Firefox.
+3. JavaScriptCore - Safari.
+
+NOTE:
+- Google Chrome, Microsoft Edge, Brave, and other browsers use JavaScript engines to execute JS.
+- Bing and Google are search engines, not JavaScript engines.
+
+
+RUNNING JAVASCRIPT OUTSIDE THE BROWSER:
+---------------------------------------
+
+- To execute JavaScript outside the browser, we can use Node.js.
+- Node.js is a JavaScript runtime environment built on top of Google's V8 engine.
+- It provides additional APIs and capabilities to execute JavaScript outside the browser.
+
+NODE.JS INCLUDES:
+1. V8 JavaScript Engine - Executes JavaScript code.
+2. Node.js APIs - File system, networking, operating system access, etc.
+3. Event Loop - Handles asynchronous operations.
+4. Node.js runtime components - Manage asynchronous I/O and other runtime operations.
+
+NOTE:
+- V8 is responsible for executing JavaScript.
+- Node.js provides the runtime environment and APIs required to execute JavaScript outside the browser.
+
+
+2. WHERE IS JAVASCRIPT USED?
+----------------------------
+
+A. BROWSER SIDE (FRONTEND):
+---------------------------
+
+1. DOM Manipulation
+   - Access and modify HTML elements.
+
+2. Updating UI
+   - Dynamically update webpage content without reloading the entire page.
+
+3. API Requests
+   - Communicate with backend servers using Fetch API or other methods.
+
+4. Form Validation
+   - Validate user inputs before submitting forms.
+
+5. User Interactions
+   - Handle clicks, keyboard events, mouse events, etc.
+
+6. Animations
+   - Create dynamic animations and interactive effects.
+
+7. Browser Storage
+   - Store information using localStorage, sessionStorage, etc.
+
+
+B. SERVER SIDE (BACKEND):
+-------------------------
+
+1. Building Backend Servers
+   - Create server-side applications using Node.js.
+
+2. Building REST APIs
+   - Create APIs to communicate with frontend applications.
+
+3. Authentication and Authorization
+   - Handle login, registration, JWT, sessions, etc.
+
+4. File Handling
+   - Read, write, upload, and manage files.
+
+5. Database Operations
+   - Communicate with databases such as MongoDB, MySQL, PostgreSQL, etc.
+
+6. Real-time Applications
+   - Build chat applications and real-time communication systems.
+
+
+3. ECMASCRIPT VS JAVASCRIPT
+---------------------------
+
+ECMASCRIPT:
+-----------
+
+- ECMAScript (ES) is a language specification/standard that defines the core rules and features of JavaScript.
+- It specifies how JavaScript language features should behave.
+
+ECMASCRIPT DEFINES:
+
+1. Variables
+2. Data Types
+3. Operators
+4. Functions
+5. Objects
+6. Classes
+7. Modules
+8. Iterators
+9. Promises
+10. Syntax and language behavior
+
+
+JAVASCRIPT:
+-----------
+
+- JavaScript is a programming language implementation based on the ECMAScript specification.
+- JavaScript environments also provide additional APIs that are not part of ECMAScript.
+
+EXAMPLES OF APIs:
+
+BROWSER APIs:
+1. DOM API
+2. Fetch API
+3. Local Storage API
+4. Session Storage API
+5. Geolocation API
+6. Browser Event APIs
+7. Timer APIs (setTimeout, setInterval)
+
+NODE.JS APIs:
+1. File System API (fs)
+2. HTTP API
+3. Path API
+4. OS API
+5. Process API
+
+
+IMPORTANT DIFFERENCE:
+
+ECMAScript:
+- Defines the core language syntax and behavior.
+
+JavaScript Environment:
+- Provides the JavaScript engine along with environment-specific APIs.
+
+EXAMPLE:
+
+- Array, Object, Promise, Function are part of the ECMAScript language.
+- document.getElementById() belongs to the browser DOM API.
+- localStorage belongs to the browser Web Storage API.
+- fs.readFile() belongs to the Node.js API.
+
+
+4. WAYS TO WRITE JAVASCRIPT
+---------------------------
+
+There are 3 main ways to include JavaScript in HTML.
+
+1. INLINE JAVASCRIPT
+2. INTERNAL JAVASCRIPT
+3. EXTERNAL JAVASCRIPT
+
+
+1. INLINE JAVASCRIPT:
+---------------------
+
+- We write JavaScript directly inside HTML elements using HTML event handler attributes.
+- Examples: onclick, onfocus, onmouseover, etc.
+
+EXAMPLE:
+
+<button onclick="console.log('Hello Vardhan')">
+    Click Me!
+</button>
+
+DISADVANTAGES:
+- HTML and JavaScript become tightly coupled.
+- Difficult to maintain in large applications.
+- Not recommended for modern application development.
+
+NOTE:
+- JavaScript event handler attributes are generally written in lowercase, such as onclick.
+
+
+2. INTERNAL JAVASCRIPT:
+-----------------------
+
+- We write JavaScript inside the HTML document using the <script> tag.
+
+EXAMPLE:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript</title>
+</head>
+
+<body>
+
+    <h1>Hello World</h1>
+
+    <script>
+        console.log("Hello Vardhan");
+    </script>
+
+</body>
+</html>
+
+
+PLACEMENT OF SCRIPT TAG:
 ------------------------
 
-- ECMAscript is a blueprint/specification that defines the rules for javascript ,includes 
-            -- variables
-            -- data types
-            -- operators
-            -- functions
-            -- objects
-            -- classes
-            -- modules
-            -- iterators
-            -- promises
-        - defines core features and behaviours
+- The placement of the script tag affects JavaScript execution.
+- HTML parsing generally starts from the top of the document and proceeds downward.
 
-- JAVASCRIPT is the actual implementation of ECMASCRIPT specification
-        -- js also provides the API's (not part of ECMAScript ) such as
-            . DOM API
-            . Fetch API
-            . local storage API
-            . browser API
-            . node.js API
+CASE 1: SCRIPT IN HEAD WITHOUT DEFER OR ASYNC
 
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        console.log(document.querySelector("h1"));
+    </script>
+</head>
 
+<body>
+    <h1>Hello World</h1>
+</body>
+</html>
 
+OUTPUT:
+null
 
-ways to write JavaScripts
-
-    Inline Javascript :- - we write js directly inside the html tags , using HTML event attributes 
-                           like onClick,OnFoucs.
-                        - <button onclick="console.log('hello vardhan')">click me.!</button>
-    internal JS        :- - we create JS  inside the Script tags
-                        - place of script tag effects the execution
-
-                                . html parsing starts from top to button from head tag.
-                                . if script tag found first it executes then even the DOM not found.
-                                so placing the Script at the end is prefered.
-
-    external JS : --we write the .js file and link it using the <script src = "file.ext"><script/>
+REASON:
+- The browser starts parsing HTML.
+- It encounters the script tag in the head.
+- HTML parsing is paused.
+- JavaScript executes immediately.
+- The h1 element has not been parsed yet.
+- Therefore, querySelector returns null.
 
 
-    Script loading: normal, defer and async
-    --------------------------------------
+CASE 2: SCRIPT AT THE END OF BODY
 
-    normal : stops the parsing html,  and js is downloaded and executed 
-          <head> 
-            <script src ="index.js"><script/>
-            <body><body/>
-          <head/>
-    defer : continues parsing html and in parallel it downloads the js ,once the html parsing 
-            completed successfully then only executes the JS.
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript</title>
+</head>
 
-            <head> 
-                <script src ="index.js" defer ><script/>
-                <body><body/>
-            <head/>
+<body>
+
+    <h1>Hello World</h1>
+
+    <script>
+        console.log(document.querySelector("h1"));
+    </script>
+
+</body>
+</html>
+
+OUTPUT:
+<h1>Hello World</h1>
+
+REASON:
+- The browser parses the h1 element first.
+- Then it encounters the script.
+- JavaScript executes.
+- The h1 element is already available in the DOM.
+
+NOTE:
+- Placing traditional scripts at the end of the body is a common approach.
+- However, using defer in the head is generally preferred for external scripts.
 
 
-    async : continues parsing html and in parallel it downloads the js ,once the JS is 
-            ,immediately executes the JS stopping  html parsing 
-              <head> 
-                <script src ="index.js" async ><script/>
-                <body><body/>
-            <head/>
-            
-Note : we see difference in DOM operations
+3. EXTERNAL JAVASCRIPT:
+-----------------------
+
+- We write JavaScript code in a separate .js file.
+- We connect the JavaScript file with the HTML document using the script src attribute.
+
+HTML:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript</title>
+
+    <script src="index.js" defer></script>
+
+</head>
+
+<body>
+    <h1>Hello World</h1>
+</body>
+</html>
 
 
-variables: let vs var vs const
-----------------------------
-- variable is a name given to the memory location, where we can store the data .
-- with the help of that variable , we can access the data.
-- 3 ways to create the variable in JS 
+JAVASCRIPT (index.js):
 
-  1. using var :
-  ***************
-  --> var is the older wy to create the variable
-  --> syntax :  var var_name = value;
-	eg :- var name,var age = 20;
-  --> when using 'var' we can redeclare the same variable n number of times
-  
-		var a = 100;
-		var a = 200;/// no error when using var
-  --> in below 
-			'''console.log(a)//undefined 
-			   var a = 100
-			'''
-			
-		In var , we can access the variable even before the declaration , through the concept of Hoisting
-		
-		Internally ,it becomes 
-			'''	
-				var a
-				console.log(a)/// undefined
-				a= 100
-			'''
-		in hoisting only the declaration is hoisted, not the assignment.
+console.log("Hello from external JavaScript");
 
-    --> var has the function scope not block scope ..
-				'''
-					function fun(){
-						if(true){
-						
-							var message = "hello";
-						}
-						console.log(message);// 'hello'
-					}
-				'''
-				
-		problems of var :
-		 + redeclaration
-		 + can access before declaration
-		 + having function scope
-	2. let usage :
-		--> to overcome the drwbacks in var, let is introduced in the ES6 
-		--> Does not allow the variable redeclaration.but we can redeclaration same varible with different scope
-		-->whenever we try to access the varible before declaration, even though the variable is hosited ,but it be stored in TEMPERAL DEAD ZONE(TDZ) ,until its variable declartion is validated ,it can be accessed.
-		--> does not allow the redeclaration of the already declared variable.
-				ERROR : Cannot redeclare block-scoped variable 'name'.
-				
-		--> it has block scope
-		--> Redeclaring let in the same scope is a " SyntaxError".
-			'''
-				function fun2(){
-					let name ;
-					if(true){
-						let name = 'hi'//block- level variable
-						console.log(name);
-					}
-					console.log(name)/// function level // undefined
-				}
-			'''
-		
-	3. const usage :
-		--> used to store the constant values
-				const PI = 3.14;
-		--> it has 
-			- initilization is mandatory at the time of declaration.
-			- prevent reassignment
-			- prevent redeclaration
-			- block scope
-			
-		const with object :
-		'''
-			const info = {
-				name : 'vardhan',
-				age : 100
-			}
-			
-			info.name = 'vendi vardhan' 
-		'''
-		
-		it is valid ,const prevent the reassignment, not obj modifications
-			
-		
-		
-	
+
+ADVANTAGES:
+1. Code reusability.
+2. Better maintainability.
+3. Separation of HTML and JavaScript.
+4. Better organization of code.
+
+
+5. SCRIPT LOADING: NORMAL VS DEFER VS ASYNC
+-------------------------------------------
+
+There are 3 important ways to load external JavaScript files.
+
+1. NORMAL SCRIPT
+2. DEFER
+3. ASYNC
+
+
+1. NORMAL SCRIPT:
+-----------------
+
+SYNTAX:
+
+<head>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+</body>
+
+
+EXECUTION PROCESS:
+
+1. Browser starts HTML parsing.
+2. Browser encounters the script tag.
+3. HTML parsing is paused.
+4. JavaScript file is downloaded.
+5. JavaScript file is executed.
+6. HTML parsing resumes.
+
+IMPORTANT:
+- Normal scripts block HTML parsing while downloading and executing.
+- If the script is placed in the head, the DOM elements below it may not be available.
+
+
+2. DEFER SCRIPT:
+----------------
+
+SYNTAX:
+
+<head>
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+</body>
+
+
+EXECUTION PROCESS:
+
+1. Browser starts HTML parsing.
+2. Browser encounters the script tag.
+3. HTML parsing continues.
+4. JavaScript file downloads in parallel with HTML parsing.
+5. HTML parsing completes.
+6. Deferred JavaScript executes.
+7. DOMContentLoaded event fires after deferred scripts finish executing.
+
+IMPORTANT:
+- defer does not block HTML parsing during download.
+- Deferred scripts execute after HTML parsing is completed.
+- Deferred scripts preserve their order of appearance.
+- defer is applicable to external classic scripts.
+- It is generally recommended when JavaScript needs the DOM.
+
+
+3. ASYNC SCRIPT:
+----------------
+
+SYNTAX:
+
+<head>
+    <script src="index.js" async></script>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+</body>
+
+
+EXECUTION PROCESS:
+
+1. Browser starts HTML parsing.
+2. Browser encounters the script tag.
+3. HTML parsing continues.
+4. JavaScript file downloads in parallel.
+5. Once the JavaScript file is downloaded, HTML parsing is paused.
+6. JavaScript executes immediately.
+7. HTML parsing resumes after execution.
+
+
+IMPORTANT:
+- async does not block HTML parsing during downloading.
+- But it blocks HTML parsing during JavaScript execution.
+- Async scripts execute as soon as they are ready.
+- Async scripts do not guarantee execution order.
+- Useful for independent scripts that do not depend on other scripts or the DOM being fully parsed.
+
+
+COMPARISON TABLE:
+
+NORMAL:
+- Downloads: Blocks HTML parsing.
+- Execution: Blocks HTML parsing.
+- Order: Maintains document order.
+
+DEFER:
+- Downloads: In parallel with HTML parsing.
+- Execution: After HTML parsing.
+- Order: Maintains document order.
+
+ASYNC:
+- Downloads: In parallel with HTML parsing.
+- Execution: As soon as downloaded.
+- Order: No guaranteed order.
+
+
+IMPORTANT NOTES:
+
+1. defer and async are primarily used with external scripts.
+2. For classic inline scripts, defer and async attributes do not provide the same behavior.
+3. defer scripts execute before the DOMContentLoaded event.
+4. async scripts do not wait for HTML parsing to finish.
+5. If async is used for multiple scripts, their execution order depends on download completion.
+
+
+5. VARIABLES IN JAVASCRIPT
+--------------------------
+
+- A variable is a named identifier used to store or refer to a value.
+- Variables allow us to access and manipulate data in a program.
+- JavaScript provides 3 main keywords to declare variables:
+
+1. var
+2. let
+3. const
+
+
+6. VAR KEYWORD
+--------------
+
+- var is the older way of declaring variables in JavaScript.
+- It has function scope, not block scope.
+- It allows redeclaration and reassignment.
+
+SYNTAX:
+
+var variable_name = value;
+
+EXAMPLE:
+
+var age = 20;
+var name = "Vardhan";
+
+
+FEATURES OF VAR:
+
+1. REDECLARATION:
+-----------------
+
+- We can redeclare the same variable multiple times within the same scope.
+
+EXAMPLE:
+
+var a = 100;
+var a = 200;
+
+console.log(a); // 200
+
+NO ERROR.
+
+
+2. REASSIGNMENT:
+----------------
+
+- We can change the value of an existing var variable.
+
+EXAMPLE:
+
+var a = 100;
+a = 200;
+
+console.log(a); // 200
+
+
+3. HOISTING:
+------------
+
+- var declarations are hoisted to the top of their function or global scope.
+- Only the declaration is hoisted, not the assignment.
+- Before the declaration is reached, the variable has the value undefined.
+
+EXAMPLE:
+
+console.log(a); // undefined
+
+var a = 100;
+
+
+INTERNALLY, CONCEPTUALLY:
+
+var a;
+
+console.log(a); // undefined
+
+a = 100;
+
+
+IMPORTANT:
+- Accessing a var variable before its declaration does not throw a ReferenceError.
+- Its declaration is hoisted and initialized with undefined.
+
+
+4. FUNCTION SCOPE:
+------------------
+
+- var has function scope.
+- A variable declared inside a function is accessible throughout that function.
+- It is not restricted to the block in which it is declared.
+
+EXAMPLE:
+
+function fun() {
+
+    if (true) {
+        var message = "Hello";
+    }
+
+    console.log(message); // Hello
+}
+
+fun();
+
+
+5. GLOBAL SCOPE:
+----------------
+
+- A var variable declared outside any function has global scope.
+- In classic browser scripts, a top-level var declaration generally creates a property on the global window object.
+- This behavior differs in ES modules.
+
+
+PROBLEMS WITH VAR:
+------------------
+
+1. Allows redeclaration.
+2. Allows access before its declaration with undefined.
+3. Has function scope instead of block scope.
+4. Can accidentally create unexpected behavior in loops and conditional blocks.
+
+
+7. LET KEYWORD
+--------------
+
+- let was introduced in ES6 (ECMAScript 2015).
+- It was introduced to provide block-scoped variables.
+- It prevents redeclaration within the same scope.
+- It allows reassignment.
+
+SYNTAX:
+
+let variable_name = value;
+
+EXAMPLE:
+
+let age = 20;
+
+
+FEATURES OF LET:
+
+1. REDECLARATION:
+-----------------
+
+- We cannot redeclare a let variable within the same scope.
+
+EXAMPLE:
+
+let a = 100;
+let a = 200;
+
+OUTPUT:
+SyntaxError: Identifier 'a' has already been declared.
+
+
+2. REASSIGNMENT:
+----------------
+
+- We can reassign a let variable.
+
+EXAMPLE:
+
+let a = 100;
+
+a = 200;
+
+console.log(a); // 200
+
+
+3. HOISTING:
+------------
+
+- let variables are also hoisted.
+- However, they are not initialized with undefined.
+- They remain in the Temporal Dead Zone (TDZ) until their declaration is evaluated.
+- Accessing them before initialization produces a ReferenceError.
+
+EXAMPLE:
+
+console.log(a); // ReferenceError
+
+let a = 100;
+
+
+TEMPORAL DEAD ZONE (TDZ):
+-------------------------
+
+- TDZ is the period between entering the scope and the point where the let or const variable is initialized.
+- During this period, the variable cannot be accessed.
+- Once the declaration is evaluated, the variable becomes accessible.
+
+EXAMPLE:
+
+{
+    // TDZ starts
+
+    console.log(a); // ReferenceError
+
+    let a = 100;
+
+    // TDZ ends
+
+    console.log(a); // 100
+}
+
+
+4. BLOCK SCOPE:
+---------------
+
+- let has block scope.
+- A block is generally defined using curly braces {}.
+- A let variable is accessible only inside the block where it is declared.
+
+EXAMPLE:
+
+function fun2() {
+
+    let name = "Vardhan";
+
+    if (true) {
+
+        let name = "Hello";
+
+        console.log(name); // Hello
+    }
+
+    console.log(name); // Vardhan
+}
+
+fun2();
+
+
+EXPLANATION:
+- The first name belongs to the function's block.
+- The second name belongs to the if block.
+- Both variables are different because they belong to different scopes.
+
+
+IMPORTANT:
+- We can declare variables with the same name in different nested scopes.
+- However, we cannot redeclare the same let variable in the same scope.
+
+
+8. CONST KEYWORD
+----------------
+
+- const was introduced in ES6 (ECMAScript 2015).
+- It is used when a variable should not be reassigned.
+- It has block scope.
+- It does not allow redeclaration in the same scope.
+- Initialization is mandatory at the time of declaration.
+
+SYNTAX:
+
+const variable_name = value;
+
+EXAMPLE:
+
+const PI = 3.14;
+
+
+FEATURES OF CONST:
+
+1. INITIALIZATION IS MANDATORY:
+-------------------------------
+
+const a;
+
+OUTPUT:
+SyntaxError: Missing initializer in const declaration.
+
+
+2. REASSIGNMENT IS NOT ALLOWED:
+-------------------------------
+
+const a = 100;
+
+a = 200;
+
+OUTPUT:
+TypeError: Assignment to constant variable.
+
+
+3. REDECLARATION IS NOT ALLOWED:
+--------------------------------
+
+const a = 100;
+const a = 200;
+
+OUTPUT:
+SyntaxError: Identifier 'a' has already been declared.
+
+
+4. BLOCK SCOPE:
+---------------
+
+- const has block scope.
+- It is accessible only within the block where it is declared.
+
+
+5. HOISTING:
+------------
+
+- const variables are hoisted.
+- They remain in the Temporal Dead Zone until initialization.
+- Accessing them before initialization results in ReferenceError.
+
+
+CONST WITH OBJECTS:
+-------------------
+
+- const prevents reassignment of the variable.
+- It does NOT prevent modification of object properties.
+- Therefore, we can modify the properties of an object declared using const.
+
+EXAMPLE:
+
+const info = {
+    name: "Vardhan",
+    age: 100
+};
+
+info.name = "Vendi Vardhan";
+
+console.log(info.name); // Vendi Vardhan
+
+
+VALID!
+
+
+BUT:
+
+const info = {
+    name: "Vardhan",
+    age: 100
+};
+
+info = {
+    name: "Yasho",
+    age: 22
+};
+
+OUTPUT:
+TypeError: Assignment to constant variable.
+
+
+REASON:
+- The variable info cannot be reassigned to a new object.
+- But the existing object's properties can be modified.
+
+
+CONST WITH ARRAYS:
+------------------
+
+const numbers = [10, 20, 30];
+
+numbers.push(40);
+
+console.log(numbers); // [10, 20, 30, 40]
+
+VALID!
+
+
+BUT:
+
+const numbers = [10, 20, 30];
+
+numbers = [40, 50, 60];
+
+OUTPUT:
+TypeError: Assignment to constant variable.
+
+
+IMPORTANT:
+- const does not make objects or arrays immutable.
+- It prevents reassignment of the variable binding.
+- Object.freeze() can be used for shallow object freezing.
+
+
+9. VAR VS LET VS CONST
+----------------------
+
+VAR:
+- Scope: Function scope / global scope.
+- Redeclaration: Allowed in the same scope.
+- Reassignment: Allowed.
+- Hoisting: Yes.
+- Initial value before declaration: undefined.
+- TDZ: No.
+
+LET:
+- Scope: Block scope.
+- Redeclaration: Not allowed in the same scope.
+- Reassignment: Allowed.
+- Hoisting: Yes.
+- Initial value before declaration: Uninitialized.
+- TDZ: Yes.
+
+CONST:
+- Scope: Block scope.
+- Redeclaration: Not allowed in the same scope.
+- Reassignment: Not allowed.
+- Hoisting: Yes.
+- Initial value before declaration: Uninitialized.
+- TDZ: Yes.
+- Initialization: Mandatory.
+
+
+10. INTERVIEW-LEVEL QUESTIONS AND ANSWERS
+-----------------------------------------
+
+
+Q1. What is JavaScript?
+
+ANSWER:
+- JavaScript is a high-level, dynamically typed, multi-paradigm programming language.
+- It is primarily used to develop interactive web applications.
+- It can execute in browsers and outside browsers using runtime environments such as Node.js.
+
+
+Q2. What is the difference between JavaScript and ECMAScript?
+
+ANSWER:
+- ECMAScript is the language specification that defines JavaScript's core features and behavior.
+- JavaScript is an implementation of the ECMAScript specification.
+- JavaScript environments also provide additional APIs such as DOM APIs, Fetch APIs, and Node.js APIs.
+
+
+Q3. What is V8?
+
+ANSWER:
+- V8 is an open-source JavaScript and WebAssembly engine developed by Google.
+- It is used in Chrome and Node.js.
+- It compiles and executes JavaScript code.
+
+
+Q4. What is Node.js?
+
+ANSWER:
+- Node.js is an open-source JavaScript runtime environment.
+- It uses the V8 engine and provides APIs to execute JavaScript outside the browser.
+
+
+Q5. What is the difference between normal, defer, and async scripts?
+
+ANSWER:
+- Normal scripts block HTML parsing during download and execution.
+- Defer scripts download in parallel and execute after HTML parsing, maintaining document order.
+- Async scripts download in parallel and execute as soon as they are ready, without guaranteeing execution order.
+
+
+Q6. What is hoisting?
+
+ANSWER:
+- Hoisting is JavaScript's behavior of processing declarations before executing the code.
+- Function declarations are available before their definition.
+- var declarations are initialized with undefined.
+- let and const declarations remain uninitialized in the Temporal Dead Zone.
+
+
+Q7. What is the Temporal Dead Zone?
+
+ANSWER:
+- TDZ is the period between entering a scope and initializing a let or const variable.
+- Accessing the variable during this period throws a ReferenceError.
+
+
+Q8. What is the difference between var, let, and const?
+
+ANSWER:
+- var has function scope and allows redeclaration and reassignment.
+- let has block scope, does not allow redeclaration in the same scope, but allows reassignment.
+- const has block scope, does not allow redeclaration or reassignment, and requires initialization.
+
+
+Q9. Can we modify an object declared using const?
+
+ANSWER:
+- Yes.
+- const prevents reassignment of the variable, not modification of the object's properties.
+
+
+Q10. Can we declare a let variable without initializing it?
+
+ANSWER:
+- Yes.
+
+EXAMPLE:
+
+let a;
+
+console.log(a); // undefined
+
+- A let variable can be declared without an initial value.
+- Until it is initialized, accessing it before its declaration produces a ReferenceError.
+
+
+Q11. Can we redeclare let inside a different block?
+
+ANSWER:
+- Yes.
+- let allows the same variable name in different scopes.
+
+EXAMPLE:
+
+let a = 10;
+
+{
+    let a = 20;
+    console.log(a); // 20
+}
+
+console.log(a); // 10
+
+
+Q12. Is JavaScript statically typed or dynamically typed?
+
+ANSWER:
+- JavaScript is dynamically typed.
+- We do not need to specify a variable's data type during declaration.
+- A variable can hold values of different types during program execution.
+
+EXAMPLE:
+
+let a = 10;
+
+a = "Hello";
+
+a = true;
+
+All are valid.
+
+
+11. TRICKY OUTPUT-BASED QUESTIONS
+--------------------------------
+
+
+QUESTION 1:
+
+console.log(a);
+
+var a = 100;
+
+OUTPUT:
+undefined
+
+REASON:
+- var declaration is hoisted and initialized with undefined.
+
+
+QUESTION 2:
+
+console.log(a);
+
+let a = 100;
+
+OUTPUT:
+ReferenceError
+
+REASON:
+- let is hoisted but remains in the TDZ until initialization.
+
+
+QUESTION 3:
+
+var a = 10;
+
+{
+    var a = 20;
+}
+
+console.log(a);
+
+OUTPUT:
+20
+
+REASON:
+- var does not have block scope.
+- Both declarations refer to the same function/global-scoped variable.
+
+
+QUESTION 4:
+
+let a = 10;
+
+{
+    let a = 20;
+}
+
+console.log(a);
+
+OUTPUT:
+10
+
+REASON:
+- let has block scope.
+- The inner variable is separate from the outer variable.
+
+
+QUESTION 5:
+
+const user = {
+    name: "Vardhan"
+};
+
+user.name = "Yasho";
+
+console.log(user.name);
+
+OUTPUT:
+Yasho
+
+REASON:
+- Modifying object properties is allowed.
+
+
+QUESTION 6:
+
+const user = {
+    name: "Vardhan"
+};
+
+user = {
+    name: "Yasho"
+};
+
+OUTPUT:
+TypeError
+
+REASON:
+- Reassigning a const variable is not allowed.
+
+
+QUESTION 7:
+
+console.log(a);
+
+var a = 10;
+
+var a = 20;
+
+console.log(a);
+
+OUTPUT:
+undefined
+20
+
+REASON:
+- var allows redeclaration.
+- Only the declaration is hoisted.
+
+
+QUESTION 8:
+
+let a = 10;
+
+let a = 20;
+
+OUTPUT:
+SyntaxError
+
+REASON:
+- let does not allow redeclaration in the same scope.
+
+
+QUESTION 9:
+
+function test() {
+
+    console.log(a);
+
+    var a = 100;
+}
+
+test();
+
+OUTPUT:
+undefined
+
+REASON:
+- var is function-scoped and its declaration is hoisted to the function scope.
+
+
+QUESTION 10:
+
+function test() {
+
+    console.log(a);
+
+    let a = 100;
+}
+
+test();
+
+OUTPUT:
+ReferenceError
+
+REASON:
+- The let variable is in its TDZ when accessed.
+
+
+12. IMPORTANT REVISION POINTS
+-----------------------------
+
+1. JavaScript is a high-level, dynamically typed programming language.
+2. JavaScript executes using JavaScript engines.
+3. V8 is used by Chrome and Node.js.
+4. Node.js allows JavaScript to run outside browsers.
+5. ECMAScript defines the core JavaScript language specification.
+6. Browser APIs are different from ECMAScript language features.
+7. JavaScript can be included using inline, internal, and external methods.
+8. Normal scripts block HTML parsing during download and execution.
+9. Defer downloads in parallel and executes after HTML parsing.
+10. Async downloads in parallel and executes as soon as it is ready.
+11. var has function scope.
+12. let and const have block scope.
+13. var allows redeclaration and reassignment.
+14. let allows reassignment but not redeclaration in the same scope.
+15. const prevents reassignment and redeclaration in the same scope.
+16. var is initialized with undefined during hoisting.
+17. let and const remain in the TDZ until initialization.
+18. const objects can have their properties modified.
+19. const prevents reassignment, not object mutation.
+20. JavaScript is dynamically typed.
+
+

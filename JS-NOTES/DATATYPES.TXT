@@ -1,50 +1,894 @@
-DATA TYPES :
-**********************
+JAVASCRIPT DATA TYPES – REVISION NOTES
+======================================
 
-- Datatype determines the type of data  that a variable to hold.
-- JS is a loosely typed language
-- In JS , we have 2 types of Datatype
-		1. primitive Datatype - are immutable values
-		2. Non-primitive datatypes (reference datatypes)
-	primitive datatypes ,we have the  
-		- NUMBER
-		- BigInt
-		- symbol
-		- string
-		- boolean
-		- null
-		- undefined
-	Non-primitive:
-		Arrays
-		functions
-		objects
-		
--- to know the type of the variable , we use 'typeof '
+1. INTRODUCTION TO DATA TYPES
+-----------------------------
 
-1. number :- both numeric and floating point numbers
-	let a=  10
-	let b= 20.02
-	let c = 10/0  // infinity
-	let d = - 10/0 // -infinity
-	let e = 'hello'/0   // NaN
-	
-	here 'infinity','-infinity'  and 'NaN' are special number datatypes 
-2. string - single or multiple characters
-			- 3 ways to create 
-				1. single quotes --- 'abac'
-				2. double quotes --- " abvd"
-				3. string templates --- `abcb ${variable}`
+- A data type determines the type of value a variable can hold.
+- JavaScript is a dynamically typed programming language.
+- We do not need to specify the data type while declaring a variable.
+- The data type of a variable is determined automatically based on the value assigned to it.
+- A variable can hold different types of values during program execution.
+
+EXAMPLE:
+
+let a = 10;        // Number
+a = "Hello";       // String
+a = true;          // Boolean
+
+All are valid in JavaScript.
 
 
-3. boolean -- either true or false
-			let isAdmin = true;
+TYPES OF DATA TYPES IN JAVASCRIPT
+---------------------------------
 
-4. undefined -- variable that are declared but but not assigned with any value 
-				- JS automatically assigns the undefined to the var or let variables
+JavaScript has 2 major categories of data types:
 
-5.null -- intensional  empty of the values
+1. Primitive Data Types
+2. Non-Primitive (Reference) Data Types
 
-6.bigint - used to store the integers that are larger than normal range integer range
-		-- let bigNumber = 123456789012345678901234567890n;
 
-			console.log(typeof bigNumber); // bigint
+1. PRIMITIVE DATA TYPES:
+------------------------
+
+- Primitive data types represent single values.
+- They are immutable.
+- When we assign a primitive value to another variable, the value is copied independently.
+
+JavaScript has 7 primitive data types:
+
+1. Number
+2. String
+3. Boolean
+4. Undefined
+5. Null
+6. BigInt
+7. Symbol
+
+
+2. NON-PRIMITIVE DATA TYPES:
+----------------------------
+
+- Non-primitive data types are objects.
+- They can store collections of values or more complex structures.
+- Variables holding objects contain references to those objects.
+
+Examples:
+
+1. Objects
+2. Arrays
+3. Functions
+4. Dates
+5. Maps
+6. Sets
+
+IMPORTANT:
+- Arrays and functions are also objects in JavaScript.
+- They are specialized types of objects.
+
+
+2. TYPEOF OPERATOR
+------------------
+
+- To identify the type of a value, we use the typeof operator.
+- It returns a string representing the type of the value.
+
+SYNTAX:
+
+typeof variable;
+typeof(value);
+
+EXAMPLE:
+
+let a = 10;
+
+console.log(typeof a); // "number"
+
+
+3. NUMBER DATA TYPE
+-------------------
+
+- The Number data type is used to store both integer and floating-point numeric values.
+- JavaScript uses the IEEE 754 double-precision floating-point format for Number values.
+- JavaScript does not have separate int and float data types.
+
+EXAMPLE:
+
+let a = 10;
+let b = 20.02;
+let c = -100;
+let d = 2.5e2;
+
+console.log(typeof a); // number
+console.log(typeof b); // number
+console.log(typeof c); // number
+console.log(typeof d); // number
+
+OUTPUT:
+number
+number
+number
+number
+
+
+SPECIAL NUMBER VALUES:
+----------------------
+
+JavaScript has some special values that belong to the Number data type.
+
+
+1. Infinity:
+
+- Represents positive infinity.
+- It occurs when a positive number is divided by zero.
+
+EXAMPLE:
+
+let a = 10 / 0;
+
+console.log(a);        // Infinity
+console.log(typeof a); // number
+
+
+2. -Infinity:
+
+- Represents negative infinity.
+- It occurs when a negative number is divided by zero.
+
+EXAMPLE:
+
+let a = -10 / 0;
+
+console.log(a);        // -Infinity
+console.log(typeof a); // number
+
+
+3. NaN (Not a Number):
+
+- NaN represents an invalid or undefined numeric result.
+- Interestingly, NaN belongs to the Number data type.
+
+EXAMPLE:
+
+let a = "hello" / 0;
+
+console.log(a);        // NaN
+console.log(typeof a); // number
+
+OTHER EXAMPLES:
+
+console.log(0 / 0);          // NaN
+console.log("hello" * 10);   // NaN
+console.log(Number("abc"));  // NaN
+
+
+IMPORTANT POINTS ABOUT NaN:
+
+1. NaN stands for Not a Number.
+2. NaN is a special value of the Number data type.
+3. typeof NaN returns "number".
+4. NaN is not equal to itself.
+
+EXAMPLE:
+
+console.log(NaN == NaN);  // false
+console.log(NaN === NaN); // false
+
+5. To check whether a value is NaN, we can use:
+
+console.log(Number.isNaN(NaN));       // true
+console.log(Number.isNaN("hello"));   // false
+
+NOTE:
+- Number.isNaN() checks whether the actual value is NaN.
+- The global isNaN() performs type conversion before checking.
+
+
+4. STRING DATA TYPE
+-------------------
+
+- A string is used to represent textual data.
+- A string can contain zero or more characters.
+- JavaScript strings are immutable.
+
+THREE WAYS TO CREATE STRINGS:
+
+1. SINGLE QUOTES
+----------------
+
+let name = 'Vardhan';
+
+
+2. DOUBLE QUOTES
+----------------
+
+let name = "Vardhan";
+
+
+3. TEMPLATE LITERALS
+--------------------
+
+- Template literals are created using backticks (`).
+- They support string interpolation using ${}.
+- They also support multiline strings.
+
+EXAMPLE:
+
+let name = "Vardhan";
+let age = 22;
+
+let info = `My name is ${name} and my age is ${age}`;
+
+console.log(info);
+
+// Output:
+// My name is Vardhan and my age is 22
+
+
+MULTILINE STRING:
+
+let message = `
+Hello,
+Welcome to JavaScript.
+`;
+
+console.log(message);
+
+
+IMPORTANT POINTS:
+
+1. Strings are immutable.
+2. We can use single quotes, double quotes, or backticks.
+3. Template literals support variable interpolation.
+4. String indexes start from 0.
+5. String length can be obtained using the length property.
+
+EXAMPLE:
+
+let name = "JavaScript";
+
+console.log(name[0]);      // J
+console.log(name.length);  // 10
+
+
+5. BOOLEAN DATA TYPE
+--------------------
+
+- Boolean represents logical values.
+- It has only two possible values:
+  1. true
+  2. false
+
+EXAMPLE:
+
+let isAdmin = true;
+let isLoggedIn = false;
+
+console.log(typeof isAdmin); // boolean
+
+
+BOOLEAN VALUES ARE COMMONLY USED IN:
+
+1. Conditional statements.
+2. Comparisons.
+3. Logical operations.
+4. Loops.
+5. Validation.
+
+
+6. UNDEFINED DATA TYPE
+----------------------
+
+- undefined is a primitive data type.
+- It represents a variable that has been declared but has not been assigned a value.
+- JavaScript automatically assigns undefined to declared variables that have not been initialized.
+
+EXAMPLE:
+
+let a;
+
+console.log(a);        // undefined
+console.log(typeof a); // undefined
+
+
+OTHER CASES WHERE undefined OCCURS:
+
+1. Accessing a missing object property.
+
+let user = {
+    name: "Vardhan"
+};
+
+console.log(user.age); // undefined
+
+
+2. Accessing an array element that does not exist.
+
+let arr = [10, 20, 30];
+
+console.log(arr[5]); // undefined
+
+
+3. A function without a return statement.
+
+function display() {
+    console.log("Hello");
+}
+
+let result = display();
+
+console.log(result); // undefined
+
+
+4. A function parameter that receives no argument.
+
+function add(a, b) {
+    console.log(a, b);
+}
+
+add(10);
+
+// Output:
+// 10 undefined
+
+
+IMPORTANT:
+- undefined means a value has not been assigned or is unavailable in the relevant context.
+- typeof undefined returns "undefined".
+
+
+7. NULL DATA TYPE
+-----------------
+
+- null is a primitive data type.
+- It represents the intentional absence of an object value.
+- It is generally used when we want to explicitly indicate that a variable has no value or no object.
+
+EXAMPLE:
+
+let user = null;
+
+console.log(user);        // null
+console.log(typeof user); // object
+
+
+IMPORTANT:
+- typeof null returns "object".
+- This is a historical behavior in JavaScript.
+- It is a well-known JavaScript bug that has been retained for backward compatibility.
+- null itself is a primitive value, NOT an object.
+
+EXAMPLE:
+
+let data = null;
+
+console.log(data === null); // true
+
+
+8. BIGINT DATA TYPE
+-------------------
+
+- BigInt is used to represent integers larger than the safe integer range of the Number data type.
+- It was introduced in ES2020.
+- We create BigInt values by adding the letter n at the end of an integer literal.
+- We can also use the BigInt() function.
+
+EXAMPLE:
+
+let bigNumber = 123456789012345678901234567890n;
+
+console.log(bigNumber);
+
+console.log(typeof bigNumber); // bigint
+
+
+USING BigInt():
+
+let num = BigInt("12345678901234567890");
+
+console.log(num);
+console.log(typeof num); // bigint
+
+
+IMPORTANT POINTS:
+
+1. BigInt is used for very large integers.
+2. BigInt cannot represent decimal values.
+3. BigInt and Number cannot be directly mixed in arithmetic operations.
+4. BigInt division truncates the decimal portion.
+5. BigInt values are represented using the n suffix in literals.
+
+EXAMPLES:
+
+console.log(10n + 20n); // 30n
+
+console.log(10n / 3n); // 3n
+
+console.log(10n + 20); // TypeError
+
+CONVERSION:
+
+console.log(10n + BigInt(20)); // 30n
+
+NOTE:
+- Be careful while converting BigInt to Number because precision can be lost for large values.
+
+
+9. SYMBOL DATA TYPE
+-------------------
+
+- Symbol is a primitive data type introduced in ES6.
+- It is used to create unique identifiers.
+- Every Symbol() call creates a unique symbol.
+
+SYNTAX:
+
+let id = Symbol();
+
+EXAMPLE:
+
+let id1 = Symbol("id");
+let id2 = Symbol("id");
+
+console.log(id1 === id2); // false
+
+console.log(typeof id1); // symbol
+
+
+IMPORTANT POINTS:
+
+1. Every Symbol() call creates a unique value.
+2. Two symbols with the same description are still different.
+3. Symbols are commonly used as unique object property keys.
+4. Symbol values are not automatically converted to strings in ordinary string concatenation.
+
+EXAMPLE:
+
+let id = Symbol("userId");
+
+let user = {
+    name: "Vardhan",
+    [id]: 101
+};
+
+console.log(user.name); // Vardhan
+console.log(user[id]);  // 101
+
+
+10. NON-PRIMITIVE DATA TYPES
+----------------------------
+
+- Non-primitive values are objects.
+- They can contain multiple properties and values.
+- When we assign an object to another variable, the reference value is copied.
+- Both variables can refer to the same object.
+
+THREE IMPORTANT EXAMPLES:
+
+
+1. OBJECTS:
+-----------
+
+- Objects store data in key-value pairs.
+
+EXAMPLE:
+
+let user = {
+    name: "Vardhan",
+    age: 22,
+    isAdmin: true
+};
+
+console.log(typeof user); // object
+
+
+2. ARRAYS:
+----------
+
+- Arrays are used to store multiple values in an ordered collection.
+- Array indexes start from 0.
+- Arrays are specialized objects.
+
+EXAMPLE:
+
+let numbers = [10, 20, 30];
+
+console.log(numbers[0]); // 10
+
+console.log(typeof numbers); // object
+
+console.log(Array.isArray(numbers)); // true
+
+
+IMPORTANT:
+- typeof an array returns "object".
+- To specifically check whether a value is an array, use Array.isArray().
+
+
+3. FUNCTIONS:
+-------------
+
+- Functions are reusable blocks of code.
+- Functions are also objects in JavaScript.
+- However, they are callable objects.
+
+EXAMPLE:
+
+function greet() {
+    console.log("Hello");
+}
+
+console.log(typeof greet); // function
+
+
+11. PRIMITIVE VS NON-PRIMITIVE
+------------------------------
+
+PRIMITIVE:
+- Stores primitive values.
+- Immutable.
+- Assignment copies the value.
+- Compared by value (with special cases such as NaN).
+
+Examples:
+Number, String, Boolean, Undefined, Null, BigInt, Symbol.
+
+
+NON-PRIMITIVE:
+- Objects and their specialized forms.
+- Objects can be modified.
+- Assignment copies the reference value.
+- Objects are compared by identity (reference).
+
+Examples:
+Objects, Arrays, Functions, Dates, Maps, Sets.
+
+
+EXAMPLE: PRIMITIVE VALUE COPYING
+
+let a = 10;
+
+let b = a;
+
+b = 20;
+
+console.log(a); // 10
+console.log(b); // 20
+
+
+EXPLANATION:
+- b receives a copy of the primitive value.
+- Changing b does not affect a.
+
+
+EXAMPLE: OBJECT REFERENCE COPYING
+
+let user1 = {
+    name: "Vardhan"
+};
+
+let user2 = user1;
+
+user2.name = "Yasho";
+
+console.log(user1.name); // Yasho
+console.log(user2.name); // Yasho
+
+
+EXPLANATION:
+- user1 and user2 refer to the same object.
+- Modifying the object through user2 affects the object accessed through user1.
+
+
+12. TYPEOF OPERATOR – COMPLETE REVISION
+---------------------------------------
+
+EXAMPLES:
+
+console.log(typeof 10);             // number
+console.log(typeof 10.5);           // number
+console.log(typeof "Hello");        // string
+console.log(typeof true);           // boolean
+console.log(typeof undefined);     // undefined
+console.log(typeof null);           // object
+console.log(typeof 100n);           // bigint
+console.log(typeof Symbol());       // symbol
+console.log(typeof {});             // object
+console.log(typeof []);             // object
+console.log(typeof function(){});   // function
+
+
+IMPORTANT typeof TRICKY CASES:
+
+1. typeof null returns "object".
+2. typeof NaN returns "number".
+3. typeof Infinity returns "number".
+4. typeof [] returns "object".
+5. typeof {} returns "object".
+6. typeof function(){} returns "function".
+7. typeof undeclaredVariable returns "undefined".
+8. Accessing an undeclared variable directly causes ReferenceError.
+
+
+13. INTERVIEW-LEVEL QUESTIONS AND ANSWERS
+-----------------------------------------
+
+
+Q1. How many primitive data types are there in JavaScript?
+
+ANSWER:
+- There are 7 primitive data types:
+  Number, String, Boolean, Undefined, Null, BigInt, and Symbol.
+
+
+Q2. Is JavaScript statically typed or dynamically typed?
+
+ANSWER:
+- JavaScript is dynamically typed.
+- The type of a variable is determined at runtime based on its assigned value.
+
+
+Q3. Is JavaScript loosely typed?
+
+ANSWER:
+- JavaScript is dynamically typed and supports implicit type coercion.
+- It is commonly described as loosely typed because it allows certain operations between different types through automatic conversion.
+
+
+Q4. Is null a primitive or non-primitive data type?
+
+ANSWER:
+- null is a primitive data type.
+- However, typeof null returns "object" because of a historical JavaScript behavior.
+
+
+Q5. What is NaN?
+
+ANSWER:
+- NaN stands for Not a Number.
+- It represents an invalid numeric result.
+- NaN belongs to the Number data type.
+- NaN is not equal to itself.
+
+
+Q6. What is the difference between undefined and null?
+
+ANSWER:
+
+undefined:
+- Generally represents an unassigned or unavailable value.
+- JavaScript can assign it automatically.
+
+null:
+- Represents an intentional absence of a value.
+- It is generally assigned explicitly by the programmer.
+
+
+Q7. What is the difference between Number and BigInt?
+
+ANSWER:
+- Number uses IEEE 754 double-precision floating-point representation.
+- BigInt represents arbitrary-precision integers.
+- BigInt is suitable for integers outside the safe integer range of Number.
+
+
+Q8. What is the difference between primitive and non-primitive data types?
+
+ANSWER:
+- Primitive values are immutable and are copied by value.
+- Non-primitive values are objects, and assigning them copies their reference value.
+
+
+Q9. Why does typeof [] return object?
+
+ANSWER:
+- Arrays are specialized objects in JavaScript.
+- Therefore, typeof returns "object".
+- We use Array.isArray() to identify arrays.
+
+
+Q10. Why does typeof function return function instead of object?
+
+ANSWER:
+- Functions are callable objects.
+- JavaScript provides the special typeof result "function" for callable functions.
+
+
+Q11. Is NaN equal to NaN?
+
+ANSWER:
+- No.
+- NaN is not equal to itself using either == or ===.
+- We can use Number.isNaN() to check for NaN.
+
+
+Q12. Can we add Number and BigInt directly?
+
+ANSWER:
+- No.
+- Mixing Number and BigInt in arithmetic operations throws a TypeError.
+- We must explicitly convert one type to the other.
+
+
+14. TRICKY OUTPUT-BASED INTERVIEW QUESTIONS
+-------------------------------------------
+
+
+QUESTION 1:
+
+console.log(typeof NaN);
+
+OUTPUT:
+number
+
+REASON:
+- NaN is a special value belonging to the Number data type.
+
+
+QUESTION 2:
+
+console.log(typeof null);
+
+OUTPUT:
+object
+
+REASON:
+- It is a historical JavaScript behavior retained for backward compatibility.
+
+
+QUESTION 3:
+
+console.log(typeof []);
+
+OUTPUT:
+object
+
+REASON:
+- Arrays are specialized objects.
+
+
+QUESTION 4:
+
+console.log(typeof function(){});
+
+OUTPUT:
+function
+
+REASON:
+- Functions are callable objects and typeof provides a special result for them.
+
+
+QUESTION 5:
+
+console.log(NaN == NaN);
+console.log(NaN === NaN);
+
+OUTPUT:
+false
+false
+
+REASON:
+- NaN is not equal to itself.
+
+
+QUESTION 6:
+
+console.log(Number.isNaN(NaN));
+console.log(Number.isNaN("Hello"));
+
+OUTPUT:
+true
+false
+
+REASON:
+- Number.isNaN() checks whether the supplied value is actually NaN without coercing it.
+
+
+QUESTION 7:
+
+let a = 10;
+let b = a;
+
+b = 20;
+
+console.log(a, b);
+
+OUTPUT:
+10 20
+
+REASON:
+- Primitive values are copied independently.
+
+
+QUESTION 8:
+
+let a = {
+    x: 10
+};
+
+let b = a;
+
+b.x = 20;
+
+console.log(a.x);
+
+OUTPUT:
+20
+
+REASON:
+- Both variables refer to the same object.
+
+
+QUESTION 9:
+
+console.log(typeof Infinity);
+console.log(typeof -Infinity);
+console.log(typeof NaN);
+
+OUTPUT:
+number
+number
+number
+
+
+QUESTION 10:
+
+console.log(typeof undefined);
+console.log(typeof null);
+
+OUTPUT:
+undefined
+object
+
+
+QUESTION 11:
+
+let a = 10n;
+let b = 20;
+
+console.log(a + b);
+
+OUTPUT:
+TypeError
+
+REASON:
+- Number and BigInt cannot be mixed directly in arithmetic operations.
+
+
+QUESTION 12:
+
+let arr = [10, 20, 30];
+
+console.log(typeof arr);
+console.log(Array.isArray(arr));
+
+OUTPUT:
+object
+true
+
+
+15. IMPORTANT REVISION POINTS
+-----------------------------
+
+1. JavaScript is dynamically typed.
+2. JavaScript has 7 primitive data types.
+3. Primitive values are immutable.
+4. Non-primitive values are objects.
+5. Arrays and functions are also objects.
+6. typeof is used to identify the type of a value.
+7. typeof null returns object.
+8. typeof NaN returns number.
+9. Infinity and -Infinity belong to Number.
+10. JavaScript Number uses IEEE 754 double precision.
+11. BigInt is used for arbitrary-precision integers.
+12. Symbol creates unique identifiers.
+13. Strings are immutable.
+14. undefined generally represents an unassigned or unavailable value.
+15. null represents intentional absence of a value.
+16. Arrays are identified using Array.isArray().
+17. Functions are callable objects.
+18. Primitive values are copied independently.
+19. Object assignments copy references.
+20. NaN is not equal to itself.
+
+
