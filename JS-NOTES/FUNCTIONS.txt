@@ -1,0 +1,738 @@
+JAVASCRIPT FUNCTIONS
+===================
+
+1. INTRODUCTION TO FUNCTIONS
+----------------------------
+
+- Functions are reusable blocks of code designed to perform a specific task.
+
+WHY FUNCTIONS?
+--------------
+1. Reduce code redundancy (avoid code repetitions).
+2. Improve code maintainability.
+3. Improve code readability.
+4. Reduce unnecessary code duplication.
+5. Improve modularity and code organization.
+
+- In JavaScript, we use the "function" keyword to declare a function.
+- A function declaration does not execute immediately when it is defined.
+- It executes when it is invoked (called).
+- However, some functions can execute automatically, such as IIFEs, or indirectly through callbacks.
+
+TYPES OF FUNCTIONS
+------------------
+
+In JavaScript, functions can be categorized in different ways:
+
+1. Function Declaration
+2. Function Expression
+3. Anonymous Functions
+4. Arrow Functions
+5. Immediately Invoked Function Expressions (IIFE)
+6. Callback Functions
+7. Higher-Order Functions
+8. Constructor Functions
+9. Generator Functions
+10. Recursive Functions
+11. Async Functions
+
+NOTE:
+- These are not 11 mutually exclusive types.
+- A function can belong to multiple categories.
+- For example, an anonymous arrow function can also be a callback function.
+
+
+2. FUNCTION DECLARATION
+-----------------------
+
+- A function declaration is a way of defining a function using the "function" keyword followed by a function name.
+
+SYNTAX:
+
+function fun_name(parameters) {
+    // Function body
+    // Statements
+
+    return value;
+}
+
+fun_name(arguments); // Function calling
+
+
+EXAMPLE:
+
+function add(a, b) {
+    return a + b;
+}
+
+let result = add(10, 20);
+
+console.log(result); // 30
+
+
+RETURN STATEMENT:
+-----------------
+
+- The return statement is used to send a value from a function back to the place where the function was called.
+- Once the return statement executes, the function terminates.
+- A function can return any JavaScript value, including numbers, strings, objects, arrays, and even other functions.
+- A function can return only one value directly. However, multiple values can be returned together using an array or object.
+
+EXAMPLE:
+
+function calculate(a, b) {
+    return a + b;
+    console.log("Hello"); // Never executes
+}
+
+console.log(calculate(10, 20)); // 30
+
+NOTE:
+- If a function does not contain a return statement, it automatically returns undefined.
+- If return is written without a value, the function returns undefined.
+
+EXAMPLE:
+
+function display() {
+    console.log("Hello");
+}
+
+let result = display();
+
+console.log(result);
+
+// Output:
+// Hello
+// undefined
+
+
+3. PARAMETERS VS ARGUMENTS
+--------------------------
+
+PARAMETERS:
+- Parameters are variables declared inside the function definition/header.
+- They receive values when the function is called.
+
+EXAMPLE:
+
+function add(a, b) {
+    console.log(a);
+    console.log(b);
+}
+
+Here:
+a, b are parameters.
+
+
+ARGUMENTS:
+- Arguments are the actual values passed to a function during function invocation or function calling.
+
+EXAMPLE:
+
+add(10, 20);
+
+Here:
+10, 20 are arguments.
+
+
+ARGUMENT ASSIGNMENT:
+--------------------
+
+- JavaScript assigns arguments to parameters from left to right.
+- The assignment takes place according to their positions.
+
+EXAMPLE:
+
+function add(a, b) {
+    console.log(a);
+    console.log(b);
+}
+
+add(10, 20);
+
+// Assignment:
+// a = 10
+// b = 20
+
+
+4. DIFFERENT PARAMETERS AND ARGUMENTS SCENARIOS
+-----------------------------------------------
+
+SCENARIO 1: MORE PARAMETERS THAN ARGUMENTS
+-----------------------------------------
+
+- When we pass fewer arguments than the number of declared parameters, the remaining unassigned parameters automatically receive undefined.
+- No error is generated.
+
+EXAMPLE:
+
+function add(a, b, c) {
+    console.log(a); // 10
+    console.log(b); // 20
+    console.log(c); // undefined
+}
+
+add(10, 20);
+
+
+SCENARIO 2: DEFAULT PARAMETERS
+------------------------------
+
+- Default parameters allow us to assign default values to parameters.
+- If an argument is not supplied, or if undefined is explicitly passed, the default value is used.
+
+SYNTAX:
+
+function add(a, b = 100) {
+    console.log(a);
+    console.log(b);
+}
+
+add(10);
+
+// Output:
+// 10
+// 100
+
+
+IMPORTANT POINTS:
+
+1. Default parameters are activated when:
+   - No argument is passed for that parameter.
+   - undefined is explicitly passed.
+
+2. Default parameters are NOT activated when:
+   - null is passed.
+   - 0 is passed.
+   - false is passed.
+   - An empty string ("") is passed.
+
+EXAMPLE:
+
+function add(a, b = 20) {
+    console.log(a, b);
+}
+
+add(10, undefined); // 10 20
+add(10, null);      // 10 null
+add(10, false);     // 10 false
+add(10, 0);         // 10 0
+add(10, "");        // 10 ""
+add(10);            // 10 20
+
+
+DEFAULT PARAMETERS POSITION:
+
+- It is generally recommended to place default parameters after required parameters for better readability.
+- However, JavaScript does not enforce this rule.
+- Arguments are always assigned positionally from left to right.
+
+EXAMPLE:
+
+function add(a = 20, b) {
+    console.log(a);
+    console.log(b);
+}
+
+add(10);
+
+// Output:
+// 10
+// undefined
+
+EXPLANATION:
+- 10 is assigned to a.
+- No argument is available for b.
+- Therefore, b receives undefined.
+- The default value of a is not used because an actual value (10) was supplied.
+
+
+SCENARIO 3: MORE ARGUMENTS THAN PARAMETERS
+------------------------------------------
+
+- JavaScript allows us to pass more arguments than the number of declared parameters.
+- The extra arguments are not automatically assigned to any declared parameters.
+- However, they are not lost.
+- Traditional functions provide an arguments object that contains all arguments passed during the function call.
+
+EXAMPLE:
+
+function add(a, b = 20) {
+    console.log(a);
+    console.log(b);
+    console.log(arguments);
+}
+
+add(10, 30, 50);
+
+// Output:
+// 10
+// 30
+// [Arguments] { '0': 10, '1': 30, '2': 50 }
+
+
+ACCESSING ARGUMENTS:
+
+function test(a, b) {
+    console.log(arguments.length); // 3
+    console.log(arguments[0]);     // 10
+    console.log(arguments[1]);     // 20
+    console.log(arguments[2]);     // 30
+}
+
+test(10, 20, 30);
+
+
+IMPORTANT POINTS ABOUT ARGUMENTS OBJECT:
+
+1. It stores all arguments passed to a traditional function.
+2. It is an array-like object, not an actual array.
+3. It has indexed properties and a length property.
+4. It does not directly support all array methods such as map(), filter(), and reduce().
+5. Arrow functions do not have their own arguments object.
+6. We can use rest parameters (...args) as a modern alternative.
+
+
+SCENARIO 4: PASSING OBJECTS AS ARGUMENTS
+---------------------------------------
+
+- JavaScript follows PASS-BY-VALUE.
+- When we pass an object to a function, the value copied into the parameter is the object reference.
+- Therefore, both the original variable and the function parameter can refer to the same object.
+- Modifying the object's properties through the parameter affects the original object.
+
+EXAMPLE 1: MODIFYING OBJECT PROPERTIES
+
+function info(user) {
+    console.log(user.name); // Vardhan
+
+    user.name = "Yasho";
+}
+
+let customer = {
+    name: "Vardhan"
+};
+
+console.log(customer.name); // Vardhan
+
+info(customer);
+
+console.log(customer.name); // Yasho
+
+
+EXPLANATION:
+
+- customer contains a reference to an object.
+- When customer is passed to info(), a copy of that reference is assigned to user.
+- Both customer and user refer to the same object.
+- Therefore, modifying user.name also modifies the original object.
+
+
+EXAMPLE 2: REASSIGNING THE PARAMETER
+
+function update(user) {
+    user = {
+        name: "John"
+    };
+}
+
+let person = {
+    name: "David"
+};
+
+update(person);
+
+console.log(person.name); // David
+
+
+EXPLANATION:
+
+- person contains a reference to the original object.
+- The reference value is copied into user.
+- When user is reassigned to a new object, only the local parameter changes its reference.
+- The original person variable still refers to the original object.
+- Therefore, person.name remains "David".
+
+
+IMPORTANT INTERVIEW POINT:
+
+- JavaScript is NOT pass-by-reference.
+- JavaScript is pass-by-value.
+- For objects, the value being copied is a reference to the object.
+- Modifying object properties through the copied reference affects the original object.
+- Reassigning the local parameter does not change the original variable's reference.
+
+
+5. ARGUMENTS OBJECT AND STRICT MODE
+----------------------------------
+
+- In traditional JavaScript functions with simple parameter lists, the arguments object behaves differently depending on strict mode.
+
+EXAMPLE 1: NON-STRICT MODE
+
+function test(a, b) {
+    a = 100;
+
+    console.log(arguments[0]); // 100
+}
+
+test(10, 20);
+
+
+EXPLANATION:
+
+- In non-strict mode, traditional functions with simple parameter lists have mapped arguments objects.
+- This means the parameter and its corresponding arguments index are linked.
+- Changing a also changes arguments[0].
+- Similarly, changing arguments[0] also changes a.
+
+
+EXAMPLE 2: STRICT MODE
+
+"use strict";
+
+function test(a, b) {
+    a = 100;
+
+    console.log(arguments[0]); // 10
+}
+
+test(10, 20);
+
+
+EXPLANATION:
+
+- In strict mode, parameters and arguments object indexes are independent.
+- Changing a does not change arguments[0].
+- Changing arguments[0] does not change a.
+
+
+IMPORTANT CONDITIONS:
+
+1. Mapping happens only in non-strict traditional functions with simple parameter lists.
+2. Simple parameter lists contain ordinary parameters without default values, rest parameters, or destructuring.
+3. Strict mode disables the mapping.
+4. Arrow functions do not have their own arguments object.
+
+
+6. FUNCTION HOISTING
+--------------------
+
+- Hoisting is JavaScript's behavior of processing declarations before executing the code.
+- Function declarations are hoisted with their function definitions.
+- Therefore, we can call a function declaration before its definition.
+
+EXAMPLE:
+
+greet();
+
+function greet() {
+    console.log("Hello");
+}
+
+// Output:
+// Hello
+
+
+IMPORTANT POINT:
+
+- Function declarations can be called before their definition.
+- Function expressions behave differently.
+- We will understand the difference in the Function Expressions topic.
+
+
+7. INTERVIEW-LEVEL QUESTIONS AND ANSWERS
+----------------------------------------
+
+
+Q1. What is the difference between parameters and arguments?
+
+ANSWER:
+
+- Parameters are variables declared in a function definition.
+- Arguments are actual values passed during function invocation.
+
+
+Q2. What happens if we pass fewer arguments than parameters?
+
+ANSWER:
+
+- The remaining parameters receive undefined unless default values are provided.
+
+
+Q3. What happens if we pass more arguments than parameters?
+
+ANSWER:
+
+- JavaScript does not throw an error.
+- Extra arguments can be accessed through the arguments object in traditional functions.
+
+
+Q4. What is the difference between undefined and null when passing arguments?
+
+ANSWER:
+
+- undefined activates a default parameter.
+- null does not activate a default parameter.
+- null is an explicitly supplied value.
+
+
+Q5. Is JavaScript pass-by-value or pass-by-reference?
+
+ANSWER:
+
+- JavaScript follows pass-by-value.
+- When objects are passed, the copied value is the reference to the object.
+- Therefore, object property modifications can affect the original object, but parameter reassignment does not affect the original variable.
+
+
+Q6. What is the arguments object?
+
+ANSWER:
+
+- The arguments object is an array-like object available inside traditional functions.
+- It stores all arguments passed to the function.
+- It is not an actual array.
+- Arrow functions do not have their own arguments object.
+
+
+Q7. What is the difference between arguments and an array?
+
+ANSWER:
+
+- An array is a built-in iterable object with array methods such as map(), filter(), and reduce().
+- The arguments object is array-like and does not directly provide all array methods.
+
+
+Q8. Can we change the value of arguments[0]?
+
+ANSWER:
+
+- Yes.
+- In non-strict traditional functions with simple parameter lists, changing arguments[0] also changes the corresponding parameter.
+- In strict mode, they are independent.
+
+
+Q9. What happens if a function has no return statement?
+
+ANSWER:
+
+- The function automatically returns undefined.
+
+
+Q10. Can a JavaScript function return multiple values?
+
+ANSWER:
+
+- A function directly returns one value.
+- However, we can return multiple values together using an array or object.
+
+EXAMPLE:
+
+function getDetails() {
+    return {
+        name: "Vardhan",
+        age: 22
+    };
+}
+
+let result = getDetails();
+
+console.log(result.name);
+console.log(result.age);
+
+
+Q11. Can we call a function before its declaration?
+
+ANSWER:
+
+- Yes.
+- Function declarations are hoisted with their definitions.
+- Therefore, they can be called before their declaration in the source code.
+
+
+Q12. Do arrow functions have their own arguments object?
+
+ANSWER:
+
+- No.
+- Arrow functions do not create their own arguments binding.
+- They resolve arguments from their surrounding lexical scope, if available.
+
+
+8. TRICKY OUTPUT-BASED INTERVIEW QUESTIONS
+------------------------------------------
+
+
+QUESTION 1:
+
+function test(a, b = 10) {
+    console.log(a, b);
+}
+
+test(undefined, 20);
+
+OUTPUT:
+undefined 20
+
+EXPLANATION:
+- a receives undefined.
+- b receives 20.
+- The default value of b is not used.
+
+
+QUESTION 2:
+
+function test(a, b = 10) {
+    console.log(a, b);
+}
+
+test(5);
+
+OUTPUT:
+5 10
+
+EXPLANATION:
+- a receives 5.
+- b receives undefined internally because no second argument is passed.
+- Therefore, its default value 10 is used.
+
+
+QUESTION 3:
+
+function test(a) {
+    a = 50;
+    console.log(arguments[0]);
+}
+
+test(10);
+
+OUTPUT IN NON-STRICT MODE:
+50
+
+OUTPUT IN STRICT MODE:
+10
+
+EXPLANATION:
+- In non-strict mode with a simple parameter list, arguments and parameters are mapped.
+- Strict mode disables this mapping.
+
+
+QUESTION 4:
+
+function update(obj) {
+    obj.name = "John";
+    obj = { name: "David" };
+    console.log(obj.name);
+}
+
+let user = { name: "Vardhan" };
+
+update(user);
+
+console.log(user.name);
+
+OUTPUT:
+David
+John
+
+EXPLANATION:
+- Initially, obj and user refer to the same object.
+- obj.name = "John" modifies the original object.
+- obj is then reassigned to a new object.
+- user still points to the original object.
+- Therefore, the final output is John.
+
+
+QUESTION 5:
+
+function add(a, b) {
+    console.log(arguments.length);
+    console.log(a + b);
+}
+
+add(10, 20, 30, 40);
+
+OUTPUT:
+4
+30
+
+EXPLANATION:
+- arguments.length counts all supplied arguments.
+- Only a and b are used in the addition.
+- Extra arguments do not automatically participate in calculations.
+
+
+QUESTION 6:
+
+function test(a = 10, b = a + 10) {
+    console.log(a, b);
+}
+
+test();
+
+OUTPUT:
+10 20
+
+EXPLANATION:
+- a receives its default value 10.
+- b's default expression uses the current value of a.
+- Therefore, b becomes 20.
+
+
+QUESTION 7:
+
+function test(a = 10, b = a + 10) {
+    console.log(a, b);
+}
+
+test(20);
+
+OUTPUT:
+20 30
+
+EXPLANATION:
+- a receives 20.
+- b is not supplied.
+- Its default expression evaluates to 20 + 10.
+
+
+QUESTION 8:
+
+function test(a, b = 20) {
+    a = 100;
+    b = 200;
+
+    console.log(arguments[0], arguments[1]);
+}
+
+test(10, 30);
+
+OUTPUT IN NON-STRICT MODE:
+100 200
+
+EXPLANATION:
+- The parameter list is non-strict and simple in this example.
+- Both parameters are mapped to their corresponding arguments indexes.
+
+
+9. IMPORTANT REVISION POINTS
+----------------------------
+
+1. Function declarations are hoisted.
+2. Arguments are assigned to parameters from left to right.
+3. Missing arguments produce undefined unless a default value exists.
+4. Default parameters are activated by undefined, not null or other falsy values.
+5. Extra arguments are allowed in JavaScript.
+6. The arguments object is array-like, not an actual array.
+7. Arrow functions do not have their own arguments object.
+8. JavaScript follows pass-by-value.
+9. Object references are copied when objects are passed to functions.
+10. Modifying object properties can affect the original object.
+11. Reassigning a local parameter does not change the original variable.
+12. Function declarations are hoisted with their definitions.
+13. A function without a return statement returns undefined.
+14. The return statement terminates function execution.
+15. Traditional functions with simple parameters can have mapped arguments objects in non-strict mode.
+
+

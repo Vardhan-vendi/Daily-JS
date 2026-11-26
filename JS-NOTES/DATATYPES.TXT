@@ -1,0 +1,50 @@
+DATA TYPES :
+**********************
+
+- Datatype determines the type of data  that a variable to hold.
+- JS is a loosely typed language
+- In JS , we have 2 types of Datatype
+		1. primitive Datatype - are immutable values
+		2. Non-primitive datatypes (reference datatypes)
+	primitive datatypes ,we have the  
+		- NUMBER
+		- BigInt
+		- symbol
+		- string
+		- boolean
+		- null
+		- undefined
+	Non-primitive:
+		Arrays
+		functions
+		objects
+		
+-- to know the type of the variable , we use 'typeof '
+
+1. number :- both numeric and floating point numbers
+	let a=  10
+	let b= 20.02
+	let c = 10/0  // infinity
+	let d = - 10/0 // -infinity
+	let e = 'hello'/0   // NaN
+	
+	here 'infinity','-infinity'  and 'NaN' are special number datatypes 
+2. string - single or multiple characters
+			- 3 ways to create 
+				1. single quotes --- 'abac'
+				2. double quotes --- " abvd"
+				3. string templates --- `abcb ${variable}`
+
+
+3. boolean -- either true or false
+			let isAdmin = true;
+
+4. undefined -- variable that are declared but but not assigned with any value 
+				- JS automatically assigns the undefined to the var or let variables
+
+5.null -- intensional  empty of the values
+
+6.bigint - used to store the integers that are larger than normal range integer range
+		-- let bigNumber = 123456789012345678901234567890n;
+
+			console.log(typeof bigNumber); // bigint

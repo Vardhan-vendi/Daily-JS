@@ -1,0 +1,851 @@
+
+# PHASE 1 – JAVASCRIPT FUNDAMENTALS :
+-------------------------------------
+
+	## 1. JavaScript Core:
+	****************************
+		- Variables: var, let, const -
+		- Data Types -
+		- Primitive vs Reference Types
+		- Operators
+		- Conditional Statements
+		- Loops
+		- Functions
+		- Function Declaration vs Expression
+		- Arrow Functions
+		- Scope
+		- Hoisting
+		- Closures
+		- this Keyword
+		- Execution Context
+		- Call Stack
+
+	## 2. Arrays and Objects:
+	*******************************
+		- Array Creation
+		- Array Methods
+		- map()
+		- filter()
+		- reduce()
+		- find()
+		- findIndex()
+		- some()
+		- every()
+		- forEach()
+		- sort()
+		- Objects
+		- Object Methods
+		- Object Destructuring
+		- Array Destructuring
+		- Spread Operator
+		- Rest Operator
+		- Optional Chaining
+		- Object.keys()
+		- Object.values()
+		- Object.entries()
+		- Shallow Copy vs Deep Copy
+		- Immutability
+
+	## 3. Modern JavaScript (ES6+):
+	*************************************
+		- Template Literals
+		- Default Parameters
+		- Modules
+		- Import and Export
+		- Named Export
+		- Default Export
+		- Classes
+		- Promises
+		- Async/Await
+		- try/catch
+		- Error Handling
+		- JSON
+		- Fetch API
+		- Callbacks
+		- Higher-Order Functions
+		- Pure Functions
+		- Synchronous vs Asynchronous JavaScript
+		- Event Loop
+		- Microtasks and Macrotasks
+
+	## 4. Browser Fundamentals:
+	*********************************
+		- DOM
+		- BOM
+		- DOM Manipulation
+		- Event Handling
+		- Event Bubbling
+		- Event Capturing
+		- Event Delegation
+		- Local Storage
+		- Session Storage
+		- HTTP Fundamentals
+		- REST APIs
+		- JSON
+
+
+
+
+# PHASE 2 – REACT FUNDAMENTALS
+
+## 5. Introduction to React
+- What is React?
+- Why React?
+- Features of React
+- React vs JavaScript
+- React vs Angular vs Vue
+- Library vs Framework
+- SPA vs MPA
+- Declarative vs Imperative Programming
+- Real DOM vs Virtual DOM
+- React Architecture
+- React Fiber Overview
+- Reconciliation Overview
+
+## 6. Environment Setup
+- Node.js
+- npm and npx
+- Vite
+- Creating React Application
+- React Project Structure
+- package.json
+- package-lock.json
+- node_modules
+- public Folder
+- src Folder
+- main.jsx
+- App.jsx
+- index.html
+- Development Server
+- Production Build
+
+## 7. JSX
+- What is JSX?
+- JSX Syntax
+- JSX Expressions
+- Embedding JavaScript
+- JSX Attributes
+- className vs class
+- JSX Rules
+- Fragments
+- Conditional Expressions
+- Rendering Dynamic Content
+- JSX vs HTML
+- JSX Compilation
+
+## 8. Components
+- What are Components?
+- Functional Components
+- Component Naming
+- Component Composition
+- Parent Components
+- Child Components
+- Nested Components
+- Reusable Components
+- Component Reusability
+- Component Organization
+- Component Tree
+
+## 9. Props
+- What are Props?
+- Passing Props
+- Receiving Props
+- Props Destructuring
+- Default Values
+- Props with Strings
+- Props with Numbers
+- Props with Arrays
+- Props with Objects
+- Passing Functions as Props
+- Children Props
+- Props Drilling
+- Props vs State
+- Read-Only Nature of Props
+
+## 10. State Management Basics
+- What is State?
+- Why State?
+- useState
+- State Declaration
+- State Updates
+- State Re-rendering
+- Multiple State Variables
+- State with Numbers
+- State with Strings
+- State with Booleans
+- State with Objects
+- State with Arrays
+- Updating Objects
+- Updating Arrays
+- State Immutability
+- Previous State
+- Functional State Updates
+- State Batching
+- State vs Props
+- Derived State
+
+## 11. Event Handling
+- React Events
+- Synthetic Events
+- onClick
+- onChange
+- onSubmit
+- onMouseEnter
+- onKeyDown
+- Passing Arguments
+- Event Object
+- preventDefault()
+- stopPropagation()
+- Event Handling with State
+
+## 12. Conditional Rendering
+- if/else
+- Ternary Operator
+- Logical AND (&&)
+- Logical OR (||)
+- Switch Statements
+- Early Returns
+- Conditional Components
+- Loading UI
+- Error UI
+- Authentication-Based Rendering
+
+## 13. Lists and Keys
+- Rendering Arrays
+- map()
+- Dynamic Rendering
+- Unique Keys
+- Why Keys?
+- Index as Key
+- Stable Keys
+- Nested Lists
+- Filtering Lists
+- Sorting Lists
+- Adding Items
+- Removing Items
+- Updating Items
+
+
+
+
+# PHASE 3 – REACT HOOKS
+
+## 14. Introduction to Hooks
+- What are Hooks?
+- Why Hooks?
+- Rules of Hooks
+- Hook Execution
+- Built-in Hooks
+- Custom Hooks
+- Hooks vs Class Components
+
+## 15. useEffect
+- What is useEffect?
+- Syntax
+- Dependency Array
+- No Dependency Array
+- Empty Dependency Array
+- Single Dependency
+- Multiple Dependencies
+- Cleanup Function
+- Mounting
+- Updating
+- Unmounting
+- Side Effects
+- API Calls
+- Event Listeners
+- Timers
+- Infinite Loops
+- Stale Closures
+- Strict Mode Behavior
+- Common Mistakes
+
+## 16. useRef
+- What is useRef?
+- Mutable References
+- DOM Access
+- Focus Input
+- Previous Values
+- Persisting Values
+- useRef vs useState
+- Timer References
+
+## 17. useContext
+- Context API
+- createContext()
+- Provider
+- useContext()
+- Global Data Sharing
+- Theme Management
+- Authentication Context
+- Context Re-rendering
+- Props Drilling vs Context
+
+## 18. useReducer
+- What is useReducer?
+- Reducer Function
+- Initial State
+- Dispatch
+- Actions
+- State Transitions
+- Complex State Management
+- useReducer vs useState
+- useReducer with Context
+
+## 19. Performance Hooks
+- useMemo
+- useCallback
+- Memoization
+- Dependency Array
+- Referential Equality
+- Expensive Calculations
+- Preventing Unnecessary Re-renders
+- React.memo
+- useMemo vs useCallback
+- useTransition
+- useDeferredValue
+
+## 20. Other Hooks
+- useId
+- useLayoutEffect
+- useSyncExternalStore
+- useImperativeHandle
+- useInsertionEffect
+- useDebugValue
+
+## 21. Custom Hooks
+- What are Custom Hooks?
+- Rules of Custom Hooks
+- Creating Custom Hooks
+- useFetch
+- useLocalStorage
+- useDebounce
+- useToggle
+- usePrevious
+- useWindowSize
+- Sharing Logic Between Components
+- Custom Hooks with API Calls
+
+
+
+
+# PHASE 4 – FORMS AND API INTEGRATION
+
+## 22. Forms
+- Form Fundamentals
+- Controlled Components
+- Uncontrolled Components
+- Input Handling
+- Text Inputs
+- Password Inputs
+- Radio Buttons
+- Checkboxes
+- Select Dropdowns
+- Textarea
+- Form Submission
+- Multiple Input Handling
+- Form Validation
+- Custom Validation
+- Error Messages
+- Reset Forms
+- File Upload
+- Image Preview
+- FormData API
+
+## 23. API Integration
+- What is an API?
+- REST API
+- HTTP Methods
+- GET
+- POST
+- PUT
+- PATCH
+- DELETE
+- HTTP Status Codes
+- Request and Response
+- JSON
+- Fetch API
+- Axios
+- Async/Await
+- API Calls in React
+- API Calls with useEffect
+- Request Headers
+- Query Parameters
+- Request Body
+- Authorization Headers
+- Error Handling
+- Loading States
+- Empty States
+- CORS
+- AbortController
+- Request Cancellation
+- Debouncing API Requests
+- Pagination
+- Search and Filtering
+
+## 24. Routing – React Router DOM
+- What is Routing?
+- Client-Side Routing
+- BrowserRouter
+- Routes
+- Route
+- Link
+- NavLink
+- useNavigate
+- useParams
+- useLocation
+- useSearchParams
+- Navigate
+- Outlet
+- Nested Routes
+- Dynamic Routes
+- Protected Routes
+- Role-Based Routes
+- 404 Pages
+- Lazy Loading Routes
+
+
+
+
+# PHASE 5 – REDUX FUNDAMENTALS
+
+## 25. Introduction to State Management
+- What is State Management?
+- Local State
+- Global State
+- Shared State
+- Server State
+- Client State
+- State Lifting
+- Props Drilling
+- Context API
+- useReducer
+- Why Redux?
+- When to Use Redux?
+- Context API vs Redux
+
+## 26. Redux Core Concepts
+- What is Redux?
+- Redux Architecture
+- Single Source of Truth
+- Store
+- State
+- Actions
+- Action Creators
+- Reducers
+- Dispatch
+- Subscribe
+- Redux Data Flow
+- One-Way Data Flow
+- Immutability
+- Pure Functions
+- Reducer Rules
+- Redux Middleware
+- Redux DevTools
+- Redux Lifecycle
+
+## 27. Traditional Redux
+- Creating a Store
+- Defining Actions
+- Action Creators
+- Creating Reducers
+- Combining Reducers
+- Dispatching Actions
+- Accessing Store State
+- Provider
+- connect()
+- mapStateToProps
+- mapDispatchToProps
+- Redux Middleware
+- Redux Thunk
+- Redux Logger
+- Redux DevTools
+- Redux Architecture
+
+
+
+
+# PHASE 6 – REDUX TOOLKIT
+
+## 28. Introduction to Redux Toolkit
+- What is Redux Toolkit?
+- Why Redux Toolkit?
+- Redux vs Redux Toolkit
+- Redux Toolkit Advantages
+- RTK Architecture
+- Installation
+- Redux Toolkit Project Structure
+
+## 29. configureStore()
+- What is configureStore()?
+- Creating a Store
+- Reducer Configuration
+- Middleware Configuration
+- Default Middleware
+- DevTools Configuration
+- Multiple Reducers
+- Store Setup
+
+## 30. createSlice()
+- What is createSlice()?
+- Slice Name
+- Initial State
+- Reducers
+- Actions
+- Payload
+- prepare Callback
+- Generated Action Creators
+- Generated Action Types
+- Immer Integration
+- State Mutation vs Immutable Updates
+- Multiple Slices
+- Slice Organization
+
+## 31. React-Redux Integration
+- What is React-Redux?
+- Provider
+- useSelector()
+- useDispatch()
+- Accessing Global State
+- Dispatching Actions
+- Selecting Specific State
+- Multiple useSelector Calls
+- Selector Functions
+- useSelector Equality
+- Redux DevTools
+- Component Re-rendering
+- Redux Data Flow
+
+## 32. Advanced Redux Toolkit
+- Multiple Slices
+- Combining Reducers
+- extraReducers
+- createAsyncThunk()
+- Async Operations
+- Pending State
+- Fulfilled State
+- Rejected State
+- Error Handling
+- Loading State
+- API Integration
+- Thunk Arguments
+- Thunk Conditions
+- Thunk Cancellation
+- Typed Redux Hooks
+- Selectors
+- createSelector()
+- Memoized Selectors
+- Normalized State
+- Entity Adapter
+- Middleware
+- Custom Middleware
+
+
+
+# PHASE 7 – RTK QUERY
+
+## 33. RTK Query Fundamentals
+- What is RTK Query?
+- Why RTK Query?
+- RTK Query Architecture
+- RTK Query vs Axios
+- RTK Query vs createAsyncThunk
+- RTK Query vs TanStack Query
+- Installation
+- createApi()
+- fetchBaseQuery()
+- API Slice
+- reducerPath
+- baseQuery
+- endpoints
+
+## 34. Query Endpoints
+- What are Queries?
+- builder.query()
+- Query Parameters
+- Query Arguments
+- Generated Query Hooks
+- useQuery()
+- useLazyQuery()
+- Loading States
+- Error States
+- Data
+- Refetch
+- Skip
+- Conditional Fetching
+
+## 35. Mutation Endpoints
+- What are Mutations?
+- builder.mutation()
+- useMutation()
+- POST Requests
+- PUT Requests
+- PATCH Requests
+- DELETE Requests
+- Trigger Functions
+- Mutation Arguments
+- Loading States
+- Error Handling
+- unwrap()
+
+## 36. RTK Query Cache Management
+- Cache
+- Cache Keys
+- Cache Lifetime
+- Subscription
+- Cache Invalidation
+- tagTypes
+- providesTags
+- invalidatesTags
+- Automated Refetching
+- Manual Cache Updates
+- updateQueryData
+- Optimistic Updates
+- Cache Prefetching
+- Cache Reset
+
+## 37. Advanced RTK Query
+- prepareHeaders
+- Authorization Headers
+- JWT Integration
+- Cookie Authentication
+- credentials: include
+- Custom baseQuery
+- Refresh Token Flow
+- Error Handling
+- Retry Logic
+- Pagination
+- Infinite Queries
+- Polling
+- Streaming Updates
+- WebSocket Integration
+- API Code Splitting
+- Multiple API Slices
+- RTK Query DevTools
+
+
+
+
+# PHASE 8 – ADVANCED REACT
+
+## 38. Component Patterns
+- Component Composition
+- Higher-Order Components
+- Render Props
+- Compound Components
+- Provider Pattern
+- Container and Presentational Pattern
+- Controlled vs Uncontrolled Components
+- Polymorphic Components
+- Reusable Component Architecture
+
+## 39. React Advanced Features
+- React.memo
+- React.lazy
+- Suspense
+- Error Boundaries
+- React Portals
+- forwardRef
+- useImperativeHandle
+- React.cloneElement
+- React.Children
+- Dynamic Components
+- StrictMode
+
+## 40. React Internals
+- Virtual DOM
+- Real DOM
+- Reconciliation
+- Diffing Algorithm
+- React Fiber
+- Fiber Tree
+- Render Phase
+- Commit Phase
+- Component Lifecycle
+- State Update Queue
+- Batching
+- Concurrent Rendering
+- Hydration
+- Suspense Internals
+
+## 41. Performance Optimization
+- Avoiding Unnecessary Re-renders
+- React.memo
+- useMemo
+- useCallback
+- Code Splitting
+- Lazy Loading
+- Suspense
+- Dynamic Imports
+- List Virtualization
+- Debouncing
+- Throttling
+- Image Optimization
+- Bundle Optimization
+- React Profiler
+- Chrome Performance Tools
+- Lighthouse
+- Core Web Vitals
+
+
+
+
+# PHASE 9 – AUTHENTICATION AND SECURITY
+
+## 42. Authentication
+- Authentication vs Authorization
+- Registration
+- Login
+- Logout
+- JWT
+- Access Tokens
+- Refresh Tokens
+- HTTP-only Cookies
+- Token Storage
+- Persistent Login
+- Protected Routes
+- Role-Based Access
+- Authentication Context
+- Redux Authentication
+- Token Refresh
+- Session Management
+- Password Reset
+- OAuth Fundamentals
+
+## 43. React Security
+- XSS
+- CSRF
+- Input Validation
+- Output Escaping
+- Secure API Requests
+- Secure Token Handling
+- HTTP-only Cookies
+- CORS
+- Content Security Policy
+- Environment Variable Security
+- Dependency Security
+- npm audit
+
+
+
+# PHASE 10 – TYPESCRIPT AND TESTING
+
+## 44. TypeScript with React
+- TypeScript Fundamentals
+- Types
+- Interfaces
+- Type Aliases
+- Union Types
+- Intersection Types
+- Generics
+- Optional Properties
+- Type Narrowing
+- Utility Types
+- Typing Props
+- Typing State
+- Typing Events
+- Typing Hooks
+- Typing Custom Hooks
+- Typing API Responses
+- TypeScript with Redux Toolkit
+- TypeScript with RTK Query
+
+## 45. React Testing
+- Unit Testing
+- Integration Testing
+- End-to-End Testing
+- Jest
+- Vitest
+- React Testing Library
+- Rendering Components
+- Testing Props
+- Testing Events
+- Testing State
+- Testing Forms
+- Testing Hooks
+- Mocking API Requests
+- Testing Redux
+- Testing RTK Query
+- Async Testing
+- Code Coverage
+
+## 46. Debugging
+- React Developer Tools
+- Components Tab
+- Profiler Tab
+- Browser DevTools
+- Console Debugging
+- Network Debugging
+- Debugging Hooks
+- Debugging Redux
+- Redux DevTools
+- Debugging API Calls
+- Error Boundaries
+- Memory Leaks
+
+
+
+# PHASE 11 – PRACTICAL PROJECTS
+
+## 47. Beginner Projects
+- Counter Application (useState)
+- Todo Application (useState)
+- Theme Switcher (useContext)
+- Shopping Cart (useReducer)
+- Notes Application
+- Expense Tracker
+
+## 48. Intermediate Projects
+- Weather Application (API)
+- Movie Search Application (API)
+- GitHub User Search
+- Authentication Application
+- Blog Application
+- CRUD Application
+- Product Listing Application
+- Pagination Application
+- Search and Filtering Application
+
+## 49. Redux Toolkit Projects
+- Redux Counter Application
+- Redux Todo Application
+- Redux Shopping Cart
+- Redux Wishlist
+- Redux Theme Management
+- Redux Authentication
+- Redux User Management
+- Redux Dashboard
+
+## 50. RTK Query Projects
+- Product CRUD Application
+- User CRUD Application
+- Search and Filter Products
+- Pagination with API
+- Authentication with JWT
+- Token Refresh
+- Admin Dashboard
+- API-Based Analytics Dashboard
+
+## 51. Advanced Projects
+- Full-Stack MERN E-commerce
+- Inventory Management System
+- Student Management System
+- Social Media Application
+- Real-Time Chat Application
+- Project Management Application
+- Multi-Role Admin Dashboard
+- SaaS Application
+
+## 52. Production and Deployment
+- Git and GitHub
+- Environment Variables
+- Production Build
+- Netlify
+- Vercel
+- AWS Fundamentals
+- CI/CD
+- GitHub Actions
+- Performance Monitoring
+- Error Monitoring
+- Production Debugging
+
